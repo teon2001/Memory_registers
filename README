@@ -1,0 +1,48 @@
+NECULA ANDREEA 323CDb
+
+La exercitiul 1 am tratat separat cazul pentru 0, 
+am facut xor intre ultima pozitie dintr-un registru
+cu primul byte din celalat registru, dupa formula.
+
+La exercitiul 2, initial am avut cate 3 cazuri pentru 
+si pentru zi, luna si an, insa am incercat sa le mai 
+grupez, astfel ca:
+-Pentru ani am avut doar cazurile cand anul curent este
+mai mic decat anul nasterii, ceea ce este evident, o
+problmea, pt ca e imposibil, deci punem 0, iar daca, 
+sa zicem, omul se nastea chiar in data curenta, tot 0
+se pune.
+-Pentru luni, avem toate cele 3 cazuri, daca luna curenta
+este mai mare sau mai mica decat cea a nasterii, mai
+scad 1 sau nu. In cazul in care si lunile sunt egale =>
+-Pentru zile, avem cazul in care este mai mare sau egala
+ziua curenta cu ziua nasterii (le iau impreuna), iar cand
+e mai mica, mai trebuie sa scad 1 pentru ca nu a apucat
+sa implineasca varsta.
+
+La exercitiul 3:
+Am inceput sa folosesc variabile globale, am observat ca
+nu-mi mai ajung contoarele, din pacate, (numarul de registre
+este limitat). Astfel ca:
+    contor_cheie => tine evidenta in vectorul cheie 
+    valoare_contor_cheie => retine, pe rand, cate o valoare din
+vectorul cheie
+    contor_parcurgere_cipher =>contor de pozitii pentr chiper
+    c_plainText => contor de pozitii pentru haystack
+Pornesc cu prima coloana din vectorul cheie, iau primul element, 
+il pun in chiper, daca "nu am iesit din chenarul" matricii, adun
+lungime cheie, ma duc in jos, altfel, continui cu o alta coloana.
+
+La exercitiul 4:
+Se afla offsetul si tag ul si se retin in niste variabile.
+In functia f1, se cauta in vectorul de tag.uri, tagul aflat
+din adresa primita. Avem 2 cazuri, 1. este gasit, super!, 
+altfel:
+-tagul meu il iau si il pun pe pozitia to_replace
+-pentru a forma acele 8 adrese, am shiftat tag.ul prima data
+ca sa obtin cele 3 zerouri la final, dupa care am adunat 1 de
+7 ori ca sa abtin 000, 001, 010 la final
+-daca am facut asta, acum pun un byte de la adresa data
+in continutul registrului.
+
+
